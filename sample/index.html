@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover user-scalable=no">
+    <title>스크롤이벤트</title>
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+    <script src="./libs/js/modernizr-detectizr.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>-->
+    <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
+</head>
+<body>
+<div id="app">
+    <button class="test" style="position:absolute; left:40px; top:200px; z-index:10; padding: 20px;">리사이즈 테스트</button>
+    <div class="header">
+        <div class="util">유틸메뉴</div>
+        <nav id="gnb">네비게이션</nav>
+    </div>
+    <div class="main">
+        <section>
+            <div class="inner-sec">
+                <h2>1번 섹션</h2>
+                <div class="sticky">스티키 영역</div>
+
+                <!-- boundaryCheck sample -->
+                <div class="boundary">
+                    <div class="move-item draggable-item">드래그 아이템</div>
+
+                    <button id="btnSetPop" style="position:absolute; top:20px; left:50%;">레이어팝업 포지션 잡기</button>
+
+                    <div class="dom-info">
+                        <h2>DOM 정보 출력</h2>
+                        <div class="info"></div>
+                    </div>
+
+                    <div class="move-item dropdown-item type-1">
+                        <div class="btn">드롭다운 버튼 1</div>
+                        <div class="dropdown-box"></div>
+                    </div>
+
+                    <div class="move-item dropdown-item  type-2">
+                        <div class="btn">드롭다운 버튼 2</div>
+                        <div class="dropdown-box"></div>
+                    </div>
+
+                    <div class="move-item dropdown-item type-3">
+                        <div class="btn">드롭다운 버튼 3</div>
+                        <div class="dropdown-box"></div>
+                    </div>
+                    
+                    <div class="move-item dropdown-item type-4">
+                        <div class="btn">드롭다운 버튼 4</div>
+                        <div class="dropdown-box"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="motion align-left">
+            <div class="inner-sec">
+                <h2>2번 섹션</h2>
+                <h3>mhu UI Simple slide</h3>
+                <div class="mhuSlide-root">
+                    <div class="mhuSlide-wrapper">
+                        <div class="mhuSlide-panels">
+                            <div class="mhuSlide-panel">1</div>
+                            <div class="mhuSlide-panel">2</div>
+                            <div class="mhuSlide-panel">3</div>
+                            <div class="mhuSlide-panel">4</div>
+                        </div>
+                    </div>
+                    <div class="mhuSlide-control">
+                        <button type="button" class="mhuSlide-control__prev"><span>prev</span></button>
+                        <button type="button"
+                        class="mhuSlide-control__next"><span>next</span></button>
+                    </div>
+                    <div class="mhuSlide-pagination"> </div>
+                </div> 
+            </div>
+        </section>
+        <section id="inc-tabs">
+            <div class="inner-sec">
+                <h2 style="text-align: center; padding: 20px; font-size: 48px;">3번 섹션</h2>
+                
+                <div id="mhu-tab-ui" class="mhuTab-root">
+                    <div class="mhuTabNav-root">
+                        <a href="#" class="mhuTabNav-list__link">탭 1</a>
+                        <a href="#" class="mhuTabNav-list__link">탭 2</a>
+                    </div>
+                    <div class="mhuTabContent-root">
+                        <div class="mhuTabContent-panel">
+                            <div>
+                                <h3>첫번째 탭 제목 1</h3>
+                                <div class="">
+                                   첫번째 탭 본문 영역
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mhuTabContent-panel">
+                            <div>
+                                <h3>두번째 탭 제목 2</h3>
+                                <div class="">
+                                    두번째 탭 본문 영역
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="motion align-left">
+            <div class="inner-sec">
+                <h2>4번 섹션</h2>
+                <div class="content">
+                    <div class="text-holder">
+                        <div class="inner">
+                            タイプAPIのChromeSettingプロトタイプに依存しています。 機能状態を取得するには、拡張機能がjongjin.
+                            read権限を要求する必要があります。 機能の状態を変更するには、拡張機能にjongjin.modify権限が必要です。
+                            拡張機能は、異なるがまとまりのあるコンポーネントで構成されています。 コンポーネントには、バックグラウンドスクリプト、コンテンツスクリプト、オプションページ、UI要素、およびさまざまなロジックファイルを含めることができます。
+                            拡張コンポーネントは、HTML、CSS、JavaScriptなどのWeb開発テクノロジを使用して作成されます。 拡張機能のコンポーネントはその機能に依存し、すべてのオプションを必要としない場合があります。
+                        </div>
+                    </div>
+                    <div class="img-box">
+                        <div class="img">왼쪽 이미지</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="motion align-right">
+            <div class="inner-sec">
+                <h2>5번 섹션</h2>
+                <div class="content">
+                    <div class="text-holder">
+                        <div class="inner">
+                            jongjin.modifyは、jongjin.read権限を意味するものではないことに注意してください。
+                            read権限を 意味するものではないことに注意してください。 bilityFeatures.modifyは、jongjin.read権限を意味するものではないことに注意してください。
+                            jongjin.modifyは、jongjin.read権限を意味するものではないことに注意してください。
+                            拡張機能は、異なるがまとまりのあるコンポーネントで構成されています。 コンポーネントには、バックグラウンドスクリプト、コンテンツスクリプト、オプションページ、UI要素、
+                            およびさまざまなロジックファイルを含めることができます。 拡張コンポーネントは、HTML、CSS、JavaScriptなどのWeb開発テクノロジを使用して作成されます。 拡張機能のコンポーネントはその機能に依存し、すべてのオプションを必要としない場合があります。
+                        </div>
+                    </div>
+                    <div class="img-box">
+                        <div class="img">우측 이미지</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="inner-sec">
+                <h2>6번 섹션</h2>
+                <div class="content">
+                    본문내용
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="footer">풋터</div>
+    <div id="contact-area" class="contact hidden">상담하기</div>
+    <button id="elem" onclick="alert('클릭!');">자동으로 클릭 되는 버튼</button>
+</div>
+
+<script type="module" src="js/main.js"></script>
+<script type="module">
+    import TabUI  from './js/mhu/core/mhu.ui.tabs.js';
+    
+    const targetTabEl = document.querySelector('#mhu-tab-ui');
+    const ajax = (r)=>{
+        new Promise((resolve, reject)=>{
+            r.self.freeze();
+            r.self.showLoading();
+            console.log('ajax를 이용해 통신중입니다...', r, )
+
+            setTimeout(()=>{
+                resolve(r) 
+            },2000)
+        }).then((r)=>{
+            console.log('ajax 응답후 결과를 처리합니다.')
+            r.self.unfreeze();
+            r.self.hideLoading();
+            r.panel.innerHTML = '현재 컨테이너에는 '+ r.index +'번 탭 컨테츠가 들어갑니다.';
+        })
+    }
+    const tabUI = new TabUI(targetTabEl, { useSinglePanel: true, callback: ajax}); // { selected: 1 }
+    //console.log('tabUI',tabUI,   tabUI._activateTabIndex)
+
+    
+    
+
+</script>
+</body>
+</html>

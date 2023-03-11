@@ -1,0 +1,11 @@
+/* 천번째 파일 */
+body{
+    color: red;
+}
+.img-holder{
+    border: 1px solid green;
+    padding:2px;
+}
+.img-holder img{
+    max-width: 100%;
+}
