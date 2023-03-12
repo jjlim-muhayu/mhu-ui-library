@@ -9,3 +9,9 @@ body{
 .img-holder img{
     max-width: 100%;
 }
+.img-jpg{
+    background: url('/src/images/icon_jpg.jpg') no-repeat center center;
+}
+.img-svg{
+    background: url('/src/images/icon_svg.svg') no-repeat center center;
+}
