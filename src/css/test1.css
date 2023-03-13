@@ -1,6 +1,8 @@
 /* 천번째 파일 */
 body{
-    color: red;
+    color: darkblue;
+    font-size: 14px;
+    line-height: 1;
 }
 .img-holder{
     border: 1px solid green;
@@ -14,4 +16,14 @@ body{
 }
 .img-svg{
     background: url('/src/images/icon_svg.svg') no-repeat center center;
+}
+
+#heading:empty:before{
+    content:'입력전입니다.';
+    color: #eaeaea;
+}
+
+.box-in *{
+    height: 40px;
+    vertical-align: middle;
 }

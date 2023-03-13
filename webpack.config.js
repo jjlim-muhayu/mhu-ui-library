@@ -1,7 +1,10 @@
 const webpack = require('webpack');
+const os = require('os')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+//const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+
 const isDevMode = process.env.NODE_ENV.includes('development')
 
 module.exports = {
@@ -9,7 +12,7 @@ module.exports = {
     // Webpack v5 버그(Live Reload 문제) 해결
     target: 'web',
     entry: {
-        vendor:['./src/js/plugins/modernizr-detectizr.js'],
+        //vendor:['./src/js/plugins/modernizr-detectizr.js'],
         app1: './src/js/modules/index.js',
         app2: './src/js/modules/index2.js',
     },
@@ -23,7 +26,8 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: [ 'style-loader','css-loader'],
+                // CSS Loader → MiniCssExtractPlugin.loader 로더를 사용해 추출
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -40,14 +44,43 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             minimize: !isDevMode,
         }),
-        new MiniCssExtractPlugin({ filename: 'app.css' }),
-        new HtmlWebpackPlugin({ template: './src/html/index.html' })
+        new MiniCssExtractPlugin({
+            linkType: false, // 기본 값 'text/css'
+            filename: 'jongjin.css'
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/template/basic.html",
+            templateParameters: {
+                title: '웹팩 연습', // 문서 타이틀
+                lang: 'ko-KR',             // 주 언어 명시
+            },
+            // 자동 주입 해제
+            //inject: false,
+
+            // 문서 메타
+            meta: {
+                'theme-color': '#4285f4',
+                'description': '웹팩 연습중',
+            },
+            minify:
+                !isDevMode
+                    ? { collapseWhitespace: true, removeComments: true }
+                    : false,
+        }),
         // new webpack.EnvironmentPlugin({ 'NODE_ENV': 'development' }), // 환경 변수 등록/관리 설정
     ],
     optimization: {
         minimize: !isDevMode,
         splitChunks: {},
         concatenateModules: !isDevMode,
+        //inject: !isDevMode,
+        // minimizer: [
+        //     // 플러그인 인스턴스 생성
+        //     new CssMinimizerPlugin({
+        //         // CPU 멀티 프로세서 병렬화 옵션 (기본 값: true)
+        //         parallel: os.cpus().length - 1,
+        //     }),
+        // ],
     },
     resolve: {
         modules: ['node_modules'],
@@ -67,9 +100,9 @@ module.exports = {
         // 포트 번호 설정
         port: 9000,
         // 핫 모듈 교체(HMR) 활성화 설정
-        hot: true,
+        hot: isDevMode,
         // gzip 압축 활성화
-        compress: true,
+        compress: !isDevMode,
         // dist 디렉토리에 실제 파일 생성
         //writeToDisk: true,
     },

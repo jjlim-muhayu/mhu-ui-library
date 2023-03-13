@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "NODE_ENV=development webpack serve",
-    "build:prd": "NODE_ENV=production webpack serve",
+    "build:prd": "NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "jongjin.lim",
   "license": "ISC",
   "dependencies": {
     "core-js": "^3.29.0",
+    "css-minimizer-webpack-plugin": "^4.2.2",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
