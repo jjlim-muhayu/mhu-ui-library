@@ -13,8 +13,7 @@ module.exports = {
     target: 'web',
     entry: {
         //vendor:['./src/js/plugins/modernizr-detectizr.js'],
-        app1: './src/js/modules/index.js',
-        app2: './src/js/modules/index2.js',
+        app: './src/js/index.js',
     },
     output: {
         path: path.resolve('./dist'),
