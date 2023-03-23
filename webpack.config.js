@@ -16,8 +16,9 @@ module.exports = {
     entry: {
         //vendor:['./src/js/plugins/modernizr-detectizr.js'],
         app: './src/js/index.js',
+        vdom: './src/jongjin/vdom.js',
+        detect: './src/jongjin/detect.js',
         test: './src/jongjin/test.js',
-        'detect': './src/jongjin/detect.js'
     },
     output: {
         path: path.resolve('./dist'),
@@ -107,7 +108,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: "sub.html",
-            chunks: ['subpage', 'detect'],
+            chunks: ['subpage', 'vdom', 'detect'],
             template: "./src/template/sub.html",
             templateParameters: {
                 title: '서브페이지', // 문서 타이틀
