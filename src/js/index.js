@@ -1,5 +1,10 @@
 import * as MHU from './modules/core/index.js'
 import { getNode, createElement, render } from './modules/DOM.js'
+import renderIsland from '@jongjin/image'
+import Button from '@component/Button'
+
+
+import '../css/test2.css'
 
 // MHU 멤버에서 하위 모듈 추출
 const {
@@ -7,6 +12,9 @@ const {
     tester: { test, expect },
     utils: { isFunction },
 } = MHU
+
+
+
 
 /* -------------------------------------------------------------------------- */
 
@@ -72,7 +80,19 @@ const container = createElement(
     slogan
 )
 
+
+// Button 컴포넌트 인스턴스 생성
+const button = new Button({
+    className: 'button',
+    onClick(e) {
+        success('Button 컴포넌트의 인스턴스를 클릭했습니다.')
+    },
+}, 'Button 컴포넌트',)
+const btnRootNode = getNode('.atag')
+button.render(btnRootNode)
+
 /* -------------------------------------------------------------------------- */
 // 렌더링
 
-render(container, getNode('#root'))
+//render(container, getNode('#root'))
+render(renderIsland(), getNode('#image-holder'))

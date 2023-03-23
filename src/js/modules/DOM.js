@@ -20,7 +20,6 @@ export function getNodeList(selector, context = document) {
 // vNode 생성 유틸리티
 export function createElement(type, props, ...children) {
     props = { ...props, children }
-
     // type이 함수 컴포넌트인 경우
     if (isFunction(type)) {
         // 함수 호출 (props 전달)

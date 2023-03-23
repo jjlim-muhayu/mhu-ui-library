@@ -27,3 +27,12 @@ body{
     height: 40px;
     vertical-align: middle;
 }
+
+.button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    padding: 0.6em 0.94em;
+    background: #111;
+    color: #fff;
+}
