@@ -1,9 +1,26 @@
 import * as MHU from './modules/core/index.js'
-import { getNode, createElement, render } from './modules/DOM.js'
+import { getNode, createElement, render } from './modules/vDOM.js'
+import realDom from './modules/DOM'
 import renderIsland from '@jongjin/image'
 import Button from '@component/Button'
 
+const myDom = new realDom({name:'jongjin'});
+myDom.getSelector('.select-test')
+myDom.addClass('myAClass12345 jongjin')
+setTimeout(()=> myDom.removeClass('myAClass12345 jongjin'),3000)
+myDom.showName();
+myDom.append('<div>어쩌고 <span>소규모 사업장</span>저쩌고</div>', '.test-append')
 
+
+const secondDom = new realDom({name:'mothers'});
+secondDom.getSelector('a')
+secondDom.showName();
+secondDom.append('div#firstLevelId.firstClass0.firstClass1>small>div.myClass.secondClass#idName>p#myId>정말 쉽게 넣기', 'a')
+secondDom.addEvent('click', function(e){
+    e.preventDefault();
+    console.log('a태그 클릭하다....')
+    secondDom.toggleClass('myClassToggle')
+})
 import '../css/test2.css'
 
 // MHU 멤버에서 하위 모듈 추출

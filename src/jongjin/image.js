@@ -1,6 +1,6 @@
 import islandImage from '@image/sample.jpg'
 
-import { createElement } from '@module/DOM'
+import { createElement } from '@module/vDOM'
 
 /* -------------------------------------------------------------------------- */
 
