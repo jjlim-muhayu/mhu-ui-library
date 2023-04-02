@@ -1,0 +1,55 @@
+@use 'sass:map';
+
+// 컬러 맵(Map) 변수
+$colors: (
+        light: (
+                bg: #efefef,
+                fg: #010101,
+                shadow: #8f8f8f,
+        ),
+        dark: (
+                bg: #111,
+                fg: #fff,
+                shadow: #737373,
+        ),
+        pink: (
+                bg: pink,
+                fg: hotpink,
+                shadow: #737373,
+        ),
+);
+
+
+
+// 컬러 값 가져오기 함수
+@function getColor($color-name, $theme: light) {
+    $theme: map.get($colors, $theme);
+    @return map.get($theme, $color-name);
+}
+
+// 테마 설정 믹스인
+@mixin setTheme($theme) {
+    $theme: $theme !global;
+}
+
+/* -------------------------------------------------------------------------- */
+
+// 기본 테마 변수
+$theme: light !default;
+
+// 테마 설정 믹스인 포함(호출)
+@include setTheme(pink);
+
+.button-s {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    padding: 0.6em 0.94em;
+    background: getColor(bg, $theme);
+    color: getColor(fg, $theme);
+}
+
+h1{
+    padding: 4px;
+    background-color: $theme;
+}

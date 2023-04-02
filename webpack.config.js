@@ -28,6 +28,17 @@ module.exports = {
     },
     module: {
         rules: [
+            // Babel 파일 로더 설정
+            {
+                test: /\.m?js$/i,
+                exclude: /node_modules/,
+                use: {
+                    loader:'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            },
             {
                 test: /\.css$/,
                 // CSS Loader → MiniCssExtractPlugin.loader 로더를 사용해 추출
@@ -48,6 +59,31 @@ module.exports = {
             //     },
             // },
             {
+                test: /\.s[ac]ss/i,
+                use: [
+                    //'style-loader',
+                    {
+                        loader: isDevMode? "style-loader" : MiniCssExtractPlugin.loader
+                    },
+                    // css-loader 소스맵 옵션 활성화
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    // sass-loader 소스맵 옵션 활성화
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
+            },
+            {
+                //test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                type: "asset", // 40KB(default) 미만은 inline, 이상은 resource로 대처
                 test: /\.(png|jpe?g|gif|svg|webp)$/i,
                 use: {
                     loader: 'file-loader',

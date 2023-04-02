@@ -2,7 +2,8 @@ import * as MHU from './modules/core/index.js'
 import { getNode, createElement, render } from './modules/vDOM.js'
 import realDom from './modules/DOM'
 import renderIsland from '@jongjin/image'
-import Button from '@component/Button'
+import {Button, Button1} from '@component/Button'
+
 
 const myDom = new realDom({name:'jongjin'});
 myDom.getSelector('.select-test')
@@ -16,11 +17,11 @@ const secondDom = new realDom({name:'mothers'});
 secondDom.getSelector('a')
 secondDom.showName();
 secondDom.append('div#firstLevelId.firstClass0.firstClass1>small>div.myClass.secondClass#idName>p#myId>정말 쉽게 넣기', 'a')
-secondDom.addEvent('click', function(e){
-    e.preventDefault();
-    console.log('a태그 클릭하다....')
-    secondDom.toggleClass('myClassToggle')
-})
+// secondDom.addEvent('click', function(e){
+//     e.preventDefault();
+//     console.log('a태그 클릭하다....')
+//     secondDom.toggleClass('myClassToggle')
+// })
 import '../css/test2.css'
 
 // MHU 멤버에서 하위 모듈 추출
@@ -107,6 +108,12 @@ const button = new Button({
 }, 'Button 컴포넌트',)
 const btnRootNode = getNode('.atag')
 button.render(btnRootNode)
+
+const button1 = new Button1({
+    className: 'othersButton',
+}, 'Button 컴포넌트의 다른 타입',)
+const btnRootNode1 = getNode('.atag')
+button1.render(btnRootNode1)
 
 /* -------------------------------------------------------------------------- */
 // 렌더링
